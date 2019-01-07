@@ -16,8 +16,9 @@ int pow(int n, int m)
 
 int dec_2_bin(int dec)
 {
-	int bin,temp,rem,i=0;
+	int bin,temp,rem,i;
 	
+	i=0;
 	bin=0;
 	temp=0;
 	
@@ -31,7 +32,9 @@ int dec_2_bin(int dec)
 	
 	while(i>0)
 	{
-		
+		bin=bin*10+temp%10;
+		temp=temp/10;
+		i--;
 		}
 	
 	return bin;
