@@ -52,9 +52,7 @@ int dec_2_bin(int dec)
 
 float bin_2_dec(float bin)
 {
-	int c;
-	cout<<bin;
-	cin>>c;
+
 	int rem,p,temp;
 	float dec;
 	p=0;
@@ -79,10 +77,12 @@ float bin_2_dec(float bin)
 		rem=bin;
 		cout<<pow(2,p)<<endl;
 		dec=dec+rem*pow(2,p);
+		cout<<dec<<endl;
 		p--;
 		temp=bin;
 		bin=bin-temp;
-		
+		if(bin>0.09)
+		bin=0.1;
 		}
 	return dec;
 	}
@@ -92,7 +92,7 @@ int main()
 	int c;
 	float n,cnvrt;
 	do{
-		cout<<"Enter 1 to convert decimal to binary"<<endl;
+		cout<<"ifEnter 1 to convert decimal to binary"<<endl;
 		cout<<"Enter 2 to convert binary to decimal"<<endl;
 		cout<<"Enter 0 to quit"<<endl<<endl; 
 		
@@ -100,7 +100,6 @@ int main()
 		cin>>c;
 		cout<<"Enter number to be convertd:";
 		cin>>n;
-		cout<<n<<endl;
 		
 		switch(c)
 		{
