@@ -3,6 +3,8 @@ using namespace std;
 
 float pow(int n, int m)
 {
+	cout<<"hy";
+	cout<<"test";
 	float p=1;
 	
 	if(m==0)
