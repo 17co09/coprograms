@@ -1,16 +1,26 @@
 #include<iostream>
 using namespace std;
 
-int pow(int n, int m)
+float pow(int n, int m)
 {
-	int p=1;
+	float p=1;
 	
 	if(m==0)
 		return 1;
 	
-	for(int i=0;i<m;i++)
-		p=p*n;
+	if(m>0)
+		for(int i=0;i<m;i++)
+			{
+				//cout<<"test1"<<endl;
+				p=p*n;
+			}
 	
+	if(m<0)
+		for(int i=m;i<0;i++)
+			{
+				//cout<<"test2"<<endl;
+				p=p/n;
+			}
 	return p;
 	}
 
@@ -40,26 +50,47 @@ int dec_2_bin(int dec)
 	return bin;
 	}
 
-int bin_2_dec(int bin)
+float bin_2_dec(float bin)
 {
-	int rem,dec,p;
-	
+	int c;
+	cout<<bin;
+	cin>>c;
+	int rem,p,temp;
+	float dec;
 	p=0;
 	dec=0;
+	temp=bin;
+	while(temp>0)
+	{
+		rem=temp%10;
+		dec=dec+rem*pow(2,p);
+		p++;
+		temp=temp/10;
+		}
+	
+	temp=bin;
+	bin=bin-temp;
+	
+	p=-1;
 	
 	while(bin>0)
 	{
-		rem=bin%10;
+		bin=bin*10;
+		rem=bin;
+		cout<<pow(2,p)<<endl;
 		dec=dec+rem*pow(2,p);
-		p++;
-		bin=bin/10;
+		p--;
+		temp=bin;
+		bin=bin-temp;
+		
 		}
 	return dec;
 	}
 
 int main()
 {
-	int n,cnvrt,c;
+	int c;
+	float n,cnvrt;
 	do{
 		cout<<"Enter 1 to convert decimal to binary"<<endl;
 		cout<<"Enter 2 to convert binary to decimal"<<endl;
@@ -69,6 +100,7 @@ int main()
 		cin>>c;
 		cout<<"Enter number to be convertd:";
 		cin>>n;
+		cout<<n<<endl;
 		
 		switch(c)
 		{
@@ -80,8 +112,6 @@ int main()
 					break;
 			}
 		}while(c!=0);
-	cout<<"test";
-	cout<<"test";
 	
 	
 	return 0;
